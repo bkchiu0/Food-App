@@ -17,7 +17,7 @@ public class UserOrmDao {
      * @param user request body with user related data
      * @return the created user
      */
-    @PostMapping("/api/users")
+    @PostMapping("/api/user")
     public User createUser(@RequestBody User user) {
         return userRepository.save(user);
     }
@@ -26,7 +26,7 @@ public class UserOrmDao {
      * Gets all users in the food.user table
      * @return list of users
      */
-    @GetMapping("/api/users")
+    @GetMapping("/api/user")
     public List<User> findAllUsers() {
         return userRepository.findAllUsers();
     }
@@ -36,7 +36,7 @@ public class UserOrmDao {
      * @param id the id of the user.
      * @return user with specified id
      */
-    @GetMapping("/api/users/{userId}")
+    @GetMapping("/api/user/{userId}")
     public User findUserById(
             @PathVariable("userId") Integer id) {
         return userRepository.findUserById(id);
@@ -48,7 +48,7 @@ public class UserOrmDao {
      * @param userUpdates user update data
      * @return the updated user
      */
-    @PutMapping("/api/users/{userId}")
+    @PutMapping("/api/user/{userId}")
     public User updateUser(
             @PathVariable("userId") Integer id,
             @RequestBody User userUpdates) {
@@ -66,7 +66,7 @@ public class UserOrmDao {
      * Deletes user by specified id
      * @param id id of user to delete
      */
-    @DeleteMapping("/api/users/{userId}")
+    @DeleteMapping("/api/user/{userId}")
     public void deleteUser(
             @PathVariable("userId") Integer id) {
         userRepository.deleteById(id);

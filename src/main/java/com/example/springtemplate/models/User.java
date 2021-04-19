@@ -39,7 +39,8 @@ public class User {
     @Setter
     private Date dateOfBirth;
 
-    public User(String firstName, String lastName, String username, String password, String email, Date dateOfBirth) {
+    public User(Integer id, String firstName, String lastName, String username, String password, String email, Date dateOfBirth) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
