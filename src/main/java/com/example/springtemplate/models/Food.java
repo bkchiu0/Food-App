@@ -4,11 +4,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 
 @Entity
-@Table(name="order", schema="food")
-public class Order {
+@Table(name="food", schema="food")
+public class Food {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
@@ -16,22 +15,27 @@ public class Order {
 
     @Getter
     @Setter
+    private String name;
+
+    @Getter
+    @Setter
     private String description;
 
     @Getter
     @Setter
-    private Timestamp placed;
+    private Float price;
 
     @Getter
     @Setter
-    private Integer userId;
+    private String foodType;
 
-    public Order(Integer id, String description, Timestamp placed, Integer userId) {
+    public Food(Integer id, String name, String description, Float price, String foodType) {
         this.id = id;
+        this.name = name;
         this.description = description;
-        this.placed = placed;
-        this.userId = userId;
+        this.price = price;
+        this.foodType = foodType;
     }
 
-    public Order() {}
+    public Food() {}
 }
