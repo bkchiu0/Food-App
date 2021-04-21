@@ -1,5 +1,5 @@
 // URL for the user orm dao that will be listening to requests
-const USERS_URL = "http://localhost:8080/api/users"
+const USERS_URL = "http://localhost:8080/api/user"
 
 // Send a get request to the server for getting all users
 export const findAllUsers = () => 

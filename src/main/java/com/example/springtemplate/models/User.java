@@ -1,10 +1,11 @@
 package com.example.springtemplate.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name="user", schema="food")
@@ -37,9 +38,10 @@ public class User {
 
     @Getter
     @Setter
-    private Date dateOfBirth;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDate dateOfBirth;
 
-    public User(Integer id, String firstName, String lastName, String username, String password, String email, Date dateOfBirth) {
+    public User(Integer id, String firstName, String lastName, String username, String password, String email, LocalDate dateOfBirth) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

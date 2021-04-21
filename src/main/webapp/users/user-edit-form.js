@@ -68,6 +68,22 @@ const UserFormEditor = () => {
                         ({...user, password: e.target.value}))}
                 className="form-control"
             />
+            <label>Email</label>
+            <input
+                value={user.email}
+                onChange={(e) =>
+                    setUser(user =>
+                        ({...user, email: e.target.value}))}
+                className="form-control"
+            />
+            <label>Date Of Birth</label>
+            <input
+                value={user.dateOfBirth}
+                onChange={(e) =>
+                    setUser(user =>
+                        ({...user, dateOfBirth: e.target.value}))}
+                className="form-control"
+            />
             <br/>
             <button
                 onClick={() => history.goBack()}    
