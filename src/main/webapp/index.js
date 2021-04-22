@@ -2,6 +2,8 @@ import UserList from "./users/user-list";
 import UserFormEditor from "./users/user-edit-form";
 import OrderList from "./orders/order-list";
 import OrderFormEditor from "./orders/order-edit-form";
+import FoodList from "./foods/food-list";
+import FoodFormEditor from "./foods/food-edit-form";
 import HomePage from "./home";
 const {HashRouter, Route} = window.ReactRouterDOM; 
 const App = () => {
@@ -19,6 +21,12 @@ const App = () => {
                 </Route>
                 <Route path="/orders/:id" exact={true}>
                     <OrderFormEditor/>
+                </Route>
+                <Route path="/foods" exact={true}>
+                    <FoodList/>
+                </Route>
+                <Route path="/foods/:id" exact={true}>
+                    <FoodFormEditor/>
                 </Route>
                 <Route path="/" exact={true}>
                     <HomePage/>
