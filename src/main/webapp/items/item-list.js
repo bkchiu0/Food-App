@@ -36,6 +36,12 @@ const ItemList = () => {
                   </li>)
             }
             </ul>
+            <button
+                onClick={() => history.goBack()} 
+                className="btn btn-secondary"
+            >
+                Back
+            </button>
         </div>
     )
 }
