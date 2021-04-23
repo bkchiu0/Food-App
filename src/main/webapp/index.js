@@ -6,6 +6,8 @@ import FoodList from "./foods/food-list";
 import FoodFormEditor from "./foods/food-edit-form";
 import ItemList from "./items/item-list";
 import ItemFormEditor from "./items/item-edit-form";
+import NutritionInfoList from "./nutrition/nutrition-info-list";
+import NutritionInfoFormEditor from "./nutrition/nutrition-info-edit-form";
 import HomePage from "./home";
 const {HashRouter, Route} = window.ReactRouterDOM; 
 const App = () => {
@@ -35,6 +37,12 @@ const App = () => {
                 </Route>
                 <Route path="/items/:id" exact={true}>
                     <ItemFormEditor/>
+                </Route>
+                <Route path="/nutrition-info" exact={true}>
+                    <NutritionInfoList/>
+                </Route>
+                <Route path="/nutrition-info/:id" exact={true}>
+                    <NutritionInfoFormEditor/>
                 </Route>
                 <Route path="/" exact={true}>
                     <HomePage/>

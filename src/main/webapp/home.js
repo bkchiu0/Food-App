@@ -16,14 +16,19 @@ const HomePage = () => (
                 </Link> 
             </li>
             <li>
+                <Link to="/items">
+                    Items
+                </Link>   
+            </li>
+            <li>
                 <Link to="/foods">
                     Foods
                 </Link>    
             </li>
             <li>
-                <Link to="/items">
-                    Items
-                </Link>   
+                <Link to="/nutrition-info">
+                    Nutritional Information
+                </Link>    
             </li>
         </ul>
     </div>

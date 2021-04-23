@@ -45,6 +45,6 @@ cholesterol_mg REAL NOT NULL,
 sodium_mg REAL NOT NULL,
 carbohydrates_g REAL NOT NULL,
 protein_g REAL NOT NULL,
-food_id INT NOT NULL,
+food_id INT NOT NULL UNIQUE,
 CONSTRAINT fk_food FOREIGN KEY(food_id) REFERENCES food.food(id)
 );
