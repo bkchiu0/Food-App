@@ -75,11 +75,14 @@ const FoodFormEditor = () => {
                         ({...food, foodType: e.target.value}))}
                 className="form-control"
             />
-            <Link
-                to={`/nutrition-info/${nutrition.id}`}    
-            >
-                Nutritional Information
-            </Link>
+            {
+                id !== "new" &&
+                (<Link
+                    to={`/nutrition-info/${nutrition.id}`}    
+                >
+                    Nutritional Information
+                </Link>)
+            }
             <br/>
             <button
                 onClick={() => history.goBack()}    

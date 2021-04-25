@@ -13,4 +13,7 @@ public interface OrderRepository extends CrudRepository<Order, Integer> {
 
     @Query(value = "SELECT * FROM food.order WHERE id=:orderId", nativeQuery = true)
     public Order findOrderById(@Param("orderId") Integer id);
+
+    @Query(value = "SELECT * FROM food.order WHERE user_id=:userId", nativeQuery = true)
+    public List<Order> findAllOrdersForUser(@Param("userId") Integer id);
 }

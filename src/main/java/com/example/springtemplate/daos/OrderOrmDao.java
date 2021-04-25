@@ -33,6 +33,15 @@ public class OrderOrmDao {
     }
 
     /**
+     * Finds all orders related to specified user id
+     * @return list of orders associated to specified user
+     */
+    @GetMapping("/api/order/user/{userId}")
+    public List<Order> findAllOrdersForUser(@PathVariable("userId") Integer id) {
+        return orderRepository.findAllOrdersForUser(id);
+    }
+
+    /**
      * Finds order by id
      * @param id the id of the order
      * @return the found order

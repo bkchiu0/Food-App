@@ -1,7 +1,7 @@
 import userService from "./user-service"
 
 const {useState, useEffect} = React
-const {useParams, useHistory} = window.ReactRouterDOM
+const {Link, useParams, useHistory} = window.ReactRouterDOM
 
 const UserFormEditor = () => {
     // set history and id params
@@ -84,6 +84,12 @@ const UserFormEditor = () => {
                         ({...user, dateOfBirth: e.target.value}))}
                 className="form-control"
             />
+            {
+                id !== "new" &&
+                (<Link to={`/orders/user/${user.id}`}>
+                    User's Orders
+                </Link>)
+            }
             <br/>
             <button
                 onClick={() => history.goBack()}    

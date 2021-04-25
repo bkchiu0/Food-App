@@ -43,6 +43,11 @@ public class NutritionalInformationDao {
         return nutrInfoRepository.findNutritionalInformationById(id);
     }
 
+    /**
+     * Finds nutritional information by food id
+     * @param id food id
+     * @return associated nutritional information
+     */
     @GetMapping("/api/nutrition/food/{foodId}")
     public NutritionalInformation findNutritionalInformationByFoodId(
             @PathVariable("foodId") Integer id){

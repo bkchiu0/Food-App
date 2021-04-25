@@ -6,6 +6,11 @@ export const findAllOrders = () =>
   fetch(ORDERS_URL)
     .then(response => response.json())
 
+// Send a get request to the server for getting orders by user id
+export const findOrdersForUser = (id) => 
+  fetch(`${ORDERS_URL}/user/${id}`)
+    .then(response => response.json())
+
 // Send a get request to the server to retrieve a order by id
 export const findOrderById = (id) => 
   fetch(`${ORDERS_URL}/${id}`)
@@ -45,6 +50,7 @@ export const updateOrder = (id, order) =>
 // export all functions as the API to this service
 export default {
   findAllOrders,
+  findOrdersForUser,
   findOrderById,
   deleteOrder,
   createOrder,

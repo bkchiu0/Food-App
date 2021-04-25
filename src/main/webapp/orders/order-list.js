@@ -1,20 +1,31 @@
 import orderService from "./order-service"
 const { useState, useEffect } = React
 
-const { Link, useHistory } = window.ReactRouterDOM;
+const { Link, useParams, useHistory } = window.ReactRouterDOM;
 
 const OrderList = () => {
     // create history object
     const history = useHistory()
+    // get user's id if provided
+    const {id} = useParams()
     // initialize state
     const [orders, setOrders] = useState([])
     // define find all orders function
     const findAllOrders = () =>
         orderService.findAllOrders()
             .then(orders => setOrders(orders))
+    // define find orders for user function
+    const findOrdersForUser = (userId) =>
+        orderService.findOrdersForUser(userId)
+            .then(orders => setOrders(orders))
     // load all orders from the rest api on component load or update
     useEffect(() => {
-        findAllOrders()
+        console.log(id)
+        if(id !== undefined){
+            findOrdersForUser(id);
+        } else {
+            findAllOrders();
+        }
     }, [])
     return(
         <div>

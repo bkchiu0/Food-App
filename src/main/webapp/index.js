@@ -20,7 +20,7 @@ const App = () => {
                 <Route path="/users/:id" exact={true}>
                     <UserFormEditor/>
                 </Route>
-                <Route path="/orders" exact={true}>
+                <Route path={["/orders", "/orders/user/:id"]} exact={true}>
                     <OrderList/>
                 </Route>
                 <Route path="/orders/:id" exact={true}>
