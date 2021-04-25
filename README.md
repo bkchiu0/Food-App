@@ -14,6 +14,24 @@ Description: A food application that keeps track of users orders, requested food
 
 - React JS frontend
 
+## Importing and Exporting the database
+
+The exported database in the directory `./database` is exported via [`pg_dump`](https://www.postgresql.org/docs/13/app-pgdump.html).
+
+To import the database, use the [`pg_restore`](https://www.postgresql.org/docs/13/app-pgrestore.html) command on `./database/postgres_db_dump.sql`.
+
+`./database/postgres_db_dump.sql` contains all the SQL commands to restore the database.
+
+### Database information
+
+- user: postgres
+
+- password: P@ssw0rd
+
+- database name: cs3200
+
+- schema: food
+
 ## Data Model
 
 UML Diagram: [UML](db_design_final_project_UML.pdf)
