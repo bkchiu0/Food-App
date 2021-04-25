@@ -1,3 +1,5 @@
+import { NUTRITION_URL } from "../nutrition/nutrition-info-service";
+
 // URL for the food orm dao that will be listening to requests
 const FOODS_URL = "http://localhost:8080/api/food"
 
@@ -42,11 +44,17 @@ export const updateFood = (id, food) =>
   )
   .then(response => response.json())
 
+// Get the nutritional information for this food
+export const getFoodNutritionInformation = (id) =>
+  fetch(`${NUTRITION_URL}/food/${id}`)
+    .then(response => response.json())
+
 // export all functions as the API to this service
 export default {
   findAllFoods,
   findFoodById,
   deleteFood,
   createFood,
-  updateFood
+  updateFood,
+  getFoodNutritionInformation
 }

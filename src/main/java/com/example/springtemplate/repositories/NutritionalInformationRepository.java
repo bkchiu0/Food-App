@@ -13,4 +13,7 @@ public interface NutritionalInformationRepository extends CrudRepository<Nutriti
 
     @Query(value = "SELECT * FROM food.nutritional_information WHERE id=:nutrId", nativeQuery = true)
     public NutritionalInformation findNutritionalInformationById(@Param("nutrId") Integer id);
+
+    @Query(value = "SELECT * FROM food.nutritional_information WHERE food_id=:foodId", nativeQuery = true)
+    public NutritionalInformation findNutritionalInformationByFoodId(@Param("foodId") Integer id);
 }

@@ -1,7 +1,7 @@
 import foodService from "./food-service"
 
 const {useState, useEffect} = React
-const {useParams, useHistory} = window.ReactRouterDOM
+const {Link, useParams, useHistory} = window.ReactRouterDOM
 
 const FoodFormEditor = () => {
     // set history and id params
@@ -9,6 +9,8 @@ const FoodFormEditor = () => {
     const {id} = useParams()
     // set component state
     const [food, setFood] = useState({})
+    // set nutrition info
+    const [nutrition, setNutrition] = useState({})
     // create function to find food by id
     const findFoodById = (id) =>
         foodService.findFoodById(id)
@@ -25,10 +27,15 @@ const FoodFormEditor = () => {
     const updateFood = (id, newFood) =>
         foodService.updateFood(id, newFood)
             .then(() => history.goBack())
+    // get food nutrition function
+    const getNutrition = (id) =>
+        foodService.getFoodNutritionInformation(id)
+            .then(info => setNutrition(info))
     // on component load or update fetch food and update state
     useEffect(() => {
         if(id != "new"){
             findFoodById(id)
+            getNutrition(id)
         }
     }, [])
     return (
@@ -68,6 +75,11 @@ const FoodFormEditor = () => {
                         ({...food, foodType: e.target.value}))}
                 className="form-control"
             />
+            <Link
+                to={`/nutrition-info/${nutrition.id}`}    
+            >
+                Nutritional Information
+            </Link>
             <br/>
             <button
                 onClick={() => history.goBack()}    

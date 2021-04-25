@@ -1,5 +1,5 @@
 // URL for the nutritional information orm dao that will be listening to requests
-const NUTRITION_URL = "http://localhost:8080/api/nutrition"
+export const NUTRITION_URL = "http://localhost:8080/api/nutrition"
 
 // Send a get request to the server for getting all nutrition info
 export const findAllNutritionInfo = () => 
