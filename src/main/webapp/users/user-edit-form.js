@@ -85,7 +85,7 @@ const UserFormEditor = () => {
                 className="form-control"
             />
             {
-                id !== "new" &&
+                !!id && id !== "new" &&
                 (<Link to={`/orders/user/${user.id}`}>
                     User's Orders
                 </Link>)

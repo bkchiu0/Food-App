@@ -32,7 +32,7 @@ const App = () => {
                 <Route path="/foods/:id" exact={true}>
                     <FoodFormEditor/>
                 </Route>
-                <Route path="/items" exact={true}>
+                <Route path={["/items", "/items/food/:fid", "/items/order/:oid"]} exact={true}>
                     <ItemList/>
                 </Route>
                 <Route path="/items/:id" exact={true}>

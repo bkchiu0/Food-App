@@ -54,9 +54,14 @@ const OrderFormEditor = () => {
                 className="form-control"
             />
             <label>
-                <Link to={`/users/${order.userId}`}>
-                    User ID
-                </Link>
+                {
+                    id === "new" ?
+                    "User ID"
+                    :
+                    <Link to={`/users/${order.userId}`}>
+                        User ID
+                    </Link>
+                }
             </label>
             <input
                 value={order.userId}
@@ -65,6 +70,12 @@ const OrderFormEditor = () => {
                         ({...order, userId: e.target.value}))}
                 className="form-control"
             />
+            {
+                !!id && id !== "new" &&
+                (<Link to={`/items/order/${order.id}`}>
+                    Related Items
+                </Link>)
+            }
             <br/>
             <button
                 onClick={() => history.goBack()}    

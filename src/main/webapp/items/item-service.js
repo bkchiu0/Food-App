@@ -11,6 +11,16 @@ export const findItemById = (id) =>
   fetch(`${ITEMS_URL}/${id}`)
     .then(response => response.json())
 
+// Send a get request to the server to retrieve items by order id
+export const findItemsByOrderId = (id) => 
+  fetch(`${ITEMS_URL}/order/${id}`)
+    .then(response => response.json())
+
+// Send a get request to the server to retrieve items by food id
+export const findItemsByFoodId = (id) => 
+  fetch(`${ITEMS_URL}/food/${id}`)
+    .then(response => response.json())
+
 // Send a delete request to delete items by id
 export const deleteItem = (id) => 
   fetch(
@@ -46,6 +56,8 @@ export const updateItem = (id, item) =>
 export default {
   findAllItems,
   findItemById,
+  findItemsByOrderId,
+  findItemsByFoodId,
   deleteItem,
   createItem,
   updateItem

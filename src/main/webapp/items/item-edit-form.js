@@ -37,9 +37,14 @@ const ItemFormEditor = () => {
             <label>Id</label>
             <input readOnly value={item.id} className="form-control"/>
             <label>
-                <Link to={`/orders/${item.orderId}`}>
-                    Order ID
-                </Link>
+                {
+                    id === "new" ?
+                    "Order ID"
+                    :
+                    <Link to={`/orders/${item.orderId}`}>
+                        Order ID
+                    </Link>
+                }
             </label>
             <input
                 value={item.orderId}
@@ -49,9 +54,14 @@ const ItemFormEditor = () => {
                 className="form-control"
             />
             <label>
-                <Link to={`/foods/${item.foodId}`}>
-                    Food ID
-                </Link>
+                {
+                    id === "new" ?
+                    "Food ID"
+                    :
+                    <Link to={`/foods/${item.foodId}`}>
+                        Food ID
+                    </Link>
+                }
             </label>
             <input
                 value={item.foodId}

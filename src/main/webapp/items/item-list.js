@@ -1,20 +1,36 @@
 import itemService from "./item-service"
 const { useState, useEffect } = React
 
-const { Link, useHistory } = window.ReactRouterDOM;
+const { Link, useParams, useHistory } = window.ReactRouterDOM;
 
 const ItemList = () => {
     // create history object
     const history = useHistory()
+    // get order and food id if present
+    const {fid, oid} = useParams()
     // initialize state
     const [items, setItems] = useState([])
     // define find all items function
     const findAllItems = () =>
         itemService.findAllItems()
             .then(items => setItems(items))
+    // define find items by order function
+    const findItemsByOrder = (id) =>
+        itemService.findItemsByOrderId(id)
+            .then(items => setItems(items))
+    // define find items by food function
+    const findItemsByFood = (id) =>
+        itemService.findItemsByFoodId(id)
+            .then(items => setItems(items))
     // load all items from the rest api on component load or update
     useEffect(() => {
-        findAllItems()
+        if (oid !== undefined) {
+            findItemsByOrder(oid)
+        } else if (fid !== undefined) {
+            findItemsByFood(fid)
+        } else {
+            findAllItems()
+        }
     }, [])
     return(
         <div>

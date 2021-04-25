@@ -44,6 +44,28 @@ public class ItemOrmDao {
     }
 
     /**
+     * Finds item by order id
+     * @param id specified order id
+     * @return the found items
+     */
+    @GetMapping("/api/item/order/{orderId}")
+    public List<Item> findItemByOrder(
+            @PathVariable("orderId") Integer id) {
+        return itemRepository.findItemsByOrder(id);
+    }
+
+    /**
+     * Finds item by food id
+     * @param id specified food id
+     * @return the found items
+     */
+    @GetMapping("/api/item/food/{foodId}")
+    public List<Item> findItemByFood(
+            @PathVariable("foodId") Integer id) {
+        return itemRepository.findItemsByFood(id);
+    }
+
+    /**
      * Updates an items information
      * @param id the id of the item
      * @param itemUpdates the new item data

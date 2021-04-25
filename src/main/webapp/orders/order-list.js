@@ -20,7 +20,6 @@ const OrderList = () => {
             .then(orders => setOrders(orders))
     // load all orders from the rest api on component load or update
     useEffect(() => {
-        console.log(id)
         if(id !== undefined){
             findOrdersForUser(id);
         } else {

@@ -85,9 +85,14 @@ const NutritionalInformationFormEditor = () => {
                 className="form-control"
             />
             <label>
-                <Link to={`/foods/${nutritionalInformation.foodId}`}>
-                    Food ID
-                </Link>
+                {
+                    id === "new" ?
+                    "Food ID"
+                    :
+                    <Link to={`/foods/${nutritionalInformation.foodId}`}>
+                        Food ID
+                    </Link>
+                }
             </label>
             <input
                 value={nutritionalInformation.foodId}

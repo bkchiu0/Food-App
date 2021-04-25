@@ -76,12 +76,23 @@ const FoodFormEditor = () => {
                 className="form-control"
             />
             {
-                id !== "new" &&
-                (<Link
-                    to={`/nutrition-info/${nutrition.id}`}    
-                >
-                    Nutritional Information
-                </Link>)
+                !!id && id !== "new" &&
+                (<ul className="list-group">
+                    <li>
+                        <Link
+                            to={`/nutrition-info/${nutrition.id}`}    
+                        >
+                            Nutritional Information
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            to={`/items/food/${food.id}`}    
+                        >
+                            Related Items
+                        </Link>
+                    </li>
+                </ul>)
             }
             <br/>
             <button

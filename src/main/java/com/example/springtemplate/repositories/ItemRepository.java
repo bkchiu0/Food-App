@@ -13,4 +13,10 @@ public interface ItemRepository extends CrudRepository<Item, Integer> {
 
     @Query(value = "SELECT * FROM food.item WHERE id=:itemId", nativeQuery = true)
     public Item findItemById(@Param("itemId") Integer id);
+
+    @Query(value = "SELECT * FROM food.item WHERE order_id=:orderId", nativeQuery = true)
+    public List<Item> findItemsByOrder(@Param("orderId") Integer id);
+
+    @Query(value = "SELECT * FROM food.item WHERE food_id=:foodId", nativeQuery = true)
+    public List<Item> findItemsByFood(@Param("foodId") Integer id);
 }
