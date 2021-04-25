@@ -1,7 +1,8 @@
 import orderService from "./order-service"
 
 const {useState, useEffect} = React
-const {useParams, useHistory} = window.ReactRouterDOM
+const {Link, useParams, useHistory} = window.ReactRouterDOM
+
 
 const OrderFormEditor = () => {
     // set history and id params
@@ -52,7 +53,11 @@ const OrderFormEditor = () => {
                         ({...order, placed: e.target.value}))}
                 className="form-control"
             />
-            <label>User ID</label>
+            <label>
+                <Link to={`/users/${order.userId}`}>
+                    User ID
+                </Link>
+            </label>
             <input
                 value={order.userId}
                 onChange={(e) =>

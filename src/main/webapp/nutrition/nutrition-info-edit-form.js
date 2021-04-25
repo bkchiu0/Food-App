@@ -1,7 +1,7 @@
 import nutritionInfoService from "./nutrition-info-service";
 
 const {useState, useEffect} = React
-const {useParams, useHistory} = window.ReactRouterDOM
+const {Link, useParams, useHistory} = window.ReactRouterDOM
 
 const NutritionalInformationFormEditor = () => {
     // set history and id params
@@ -84,7 +84,11 @@ const NutritionalInformationFormEditor = () => {
                         ({...nutritionalInformation, proteinG: e.target.value}))}
                 className="form-control"
             />
-            <label>Food Id</label>
+            <label>
+                <Link to={`/foods/${nutritionalInformation.foodId}`}>
+                    Food ID
+                </Link>
+            </label>
             <input
                 value={nutritionalInformation.foodId}
                 onChange={(e) =>

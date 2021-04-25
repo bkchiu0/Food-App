@@ -1,7 +1,7 @@
 import itemService from "./item-service"
 
 const {useState, useEffect} = React
-const {useParams, useHistory} = window.ReactRouterDOM
+const {Link, useParams, useHistory} = window.ReactRouterDOM
 
 const ItemFormEditor = () => {
     // set history and id params
@@ -36,7 +36,11 @@ const ItemFormEditor = () => {
             <h2>Item Editor</h2>
             <label>Id</label>
             <input readOnly value={item.id} className="form-control"/>
-            <label>Order ID</label>
+            <label>
+                <Link to={`/orders/${item.orderId}`}>
+                    Order ID
+                </Link>
+            </label>
             <input
                 value={item.orderId}
                 onChange={(e) =>
@@ -44,7 +48,11 @@ const ItemFormEditor = () => {
                         ({...item, orderId: e.target.value}))}
                 className="form-control"
             />
-            <label>Food ID</label>
+            <label>
+                <Link to={`/foods/${item.foodId}`}>
+                    Food ID
+                </Link>
+            </label>
             <input
                 value={item.foodId}
                 onChange={(e) =>

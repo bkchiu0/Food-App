@@ -13,22 +13,22 @@ const HomePage = () => (
             <li>
                 <Link to="/orders">
                     Orders
-                </Link> 
+                </Link>
             </li>
             <li>
                 <Link to="/items">
                     Items
-                </Link>   
+                </Link>
             </li>
             <li>
                 <Link to="/foods">
                     Foods
-                </Link>    
+                </Link>
             </li>
             <li>
                 <Link to="/nutrition-info">
                     Nutritional Information
-                </Link>    
+                </Link>
             </li>
         </ul>
     </div>
